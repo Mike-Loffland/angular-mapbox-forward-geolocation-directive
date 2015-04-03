@@ -1,2 +1,2 @@
-# angular-mapbox-forward-geolocation-directive
-Angular directive that works with the Mapbox forward geocoding API.
+## Angular Mapbox Forward Geolocation Directive
+Angular directive that works with the [Mapbox forward geocoding API](https://www.mapbox.com/developers/api/geocoding/#forward).
