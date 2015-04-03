@@ -101,8 +101,11 @@
                 }
               });
               // if the directive user wants the results returned to their own scope array
-              if(scope.wantResults){
-                scope.queryResults = scope.suggestions;
+              if((src == 'button' && scope.wantResults)){
+                scope.queryResults = scope.suggestions.slice(0);
+                scope.selectedLoc = scope.searchText;
+                scope.searchText = '';
+                scope.suggestions = [];
               }
 
             })
