@@ -1,6 +1,6 @@
 (function () {
 
-  angular.module('app', ['mapbox-forward-geo'])
+  angular.module('app', ['mapbox-forward-geo','moduleFilters'])
 
     .controller('AppCtrl', function($scope){
       $scope.myapitoken = 'pk.eyJ1IjoibWxvZmZsYW5kIiwiYSI6Ik5leC11NlUifQ.h2UgWXhT5l7zjts894SySw';
@@ -35,4 +35,9 @@
       });
   });
 
+  angular.module('moduleFilters', []).filter('classy', function() {
+    return function(text) {
+      return String(text).replace(/ /mg, "-");
+    };
+  });
 }());

@@ -7,23 +7,68 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css"/>
 </head>
-<body style="text-align: center;">
+<body>
 
-	<div ng-controller="AppCtrl">
-		<h1 style="margin-bottom:80px;">Angular Directive for the Mapbox Forward Geocoding API</h1>
+		<div class="container">
+				<!-- main area -->
+				<div>
+					<div ng-controller="AppCtrl" class="row">
+						<h1 style="margin-bottom:80px;">Angular Directive for the Mapbox Forward Geocoding API</h1>
 
-		<mapbox-forward-geocoding selected-location="addressSelection" options="{autoSuggest: true}" api-token="myapitoken"></mapbox-forward-geocoding>
+						<div>
+						<mapbox-forward-geocoding selected-location="addressSelection" query-results="results" options="{autoSuggest: true}" api-token="myapitoken"></mapbox-forward-geocoding>
+						</div>
+						<div>
+							<div ng-show="addressSelection" ng-cloak>
+								You selected the following location:<br /><br />
+									<div style="text-align:left;">
 
-		<div ng-show="addressSelection" ng-cloak>
-			You selected the following location:<br /><br />{{addressSelection}}
-		</div>
 
-	</div>
+									<table class="table">
+										<tr ng-repeat="(key, value) in addressSelection">
+											<td class="prop">
+												{{key}}
+											</td>
+											<td>
+												{{ value }}
+											</td>
+										</tr>
+									</table>
+
+									</div>
+
+							</div>
 
 
 
+
+
+							<div ng-show="results" ng-cloak>
+								Your search produced the following results:<br /><br />
+
+								<table class="table" style="text-align:left;">
+									<tr ng-repeat="result in results">
+										<td class="prop">
+											{{ result.place_name }}
+										</td>
+										<td>
+											{{ result.geometry.coordinates }}
+										</td>
+									</tr>
+								</table>
+
+							</div>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+	<!-- script references -->
 	<script src="app.js"></script>
 	<script src="angular-mapbox-forward-geolocation.js"></script>
-
 </body>
 </html>
