@@ -65,7 +65,7 @@ This directive can be customized by passing an options object via the options at
 
 * **placeHolderText** - Customizes the placeholder text in the input box.
 * **minLength** - Customize how many characters must be provided before querying the Mapbox API. The default is 4.
-* **minLengthErrorText** - Customizes the error text displayed whenever a user attempts to submit a search that does not meet the minimum length requirements. If you include %N% in your string, the directive will replace %N% with the value of * **minLengthErrorText** - Customizes the error text displayed whenever a user attempts to submit a search that does not meet the minimum length requirements. If you include %N% in your string, the directive will replace %N% with the value of minLength.
+* **minLengthErrorText** - Customizes the error text displayed whenever a user attempts to submit a search that does not meet the minimum length requirements. If you include %N% in your string, the directive will replace %N% with the value of **minLength**.
 * **displayProperty** - Specify which property from the Mapbox API you want displayed in the auto-suggest results. The default is place_name.
 * **excludeEntriesWithNoPlaceName** - Whether or not to include results that do not have a value for place_name. The default is false.
 * **autoSuggest** - Whether or not to provide suggestions based on a user input. The default is true.
