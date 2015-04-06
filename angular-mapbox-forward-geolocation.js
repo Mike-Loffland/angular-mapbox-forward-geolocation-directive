@@ -15,11 +15,13 @@
         options: '=',
         apiToken: '='
       },
-      template: '<form class="mapbbox-fgd" name="mapboxFGD"><input name="searchText" type="text" ng-focus="flagminerror=false" placeholder="{{selectedLoc || placeHolderText}}" id="mbac-searchInput" ng-minlength="minLength" ng-model="searchText" ng-keyup="!autoSuggest || search()"/>'
-      + '<input type="button" value="search" id="mbfgd-searchbtn" ng-click="search(\'button\')" >'
-      + '<ul id="mbfgd-suggestions">'
-      + '<li ng-repeat="suggestion in suggestions" ng-if="autoSuggest" ng-click="!selectedLocationAvailable || useSelectedLocation($index)">{{suggestion[displayProperty] ? suggestion[displayProperty] : emptyPropertyText}}</li>'
-      + '</ul><div ng-show="mapboxFGD.searchText.$error.minlength || flagminerror">{{minLengthErrorText}}</div></form>',
+      template: [
+        '<form class="mapbbox-fgd" name="mapboxFGD"><input name="searchText" type="text" ng-focus="flagminerror=false" placeholder="{{selectedLoc || placeHolderText}}" id="mbac-searchInput" ng-minlength="minLength" ng-model="searchText" ng-keyup="!autoSuggest || search()"/>',
+        '<input type="button" value="search" id="mbfgd-searchbtn" ng-click="search(\'button\')" >',
+        '<ul id="mbfgd-suggestions">',
+        '<li ng-repeat="suggestion in suggestions" ng-if="autoSuggest" ng-click="!selectedLocationAvailable || useSelectedLocation($index)">{{suggestion[displayProperty] ? suggestion[displayProperty] : emptyPropertyText}}</li>',
+        '</ul><div ng-show="mapboxFGD.searchText.$error.minlength || flagminerror">{{minLengthErrorText}}</div></form>'
+      ].join(''),
       link: function (scope,element,attrs) {
 
         scope.suggestions = [];
@@ -40,7 +42,7 @@
           // allow directive user to exclude results where place_name is empty or absent in the mapbox results
           excludeEntriesWithNoPlaceName: false,
           // allow directive user to enable auto suggest
-          autoSuggest: false,
+          autoSuggest: true,
           // allow directive user to specify their own string to use if displayProperty is empty
           emptyPropertyText: '(empty property)',
           // allow directive user to specify their own min length for determining when a search string is long enough to execute a query
