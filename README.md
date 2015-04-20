@@ -7,7 +7,7 @@ This Angular JS directive uses the Mapbox forward geocoding API to allow your us
 
 ### How to use it
 
-First and foremost, you need to have a working [Mapbox API token[(https://www.mapbox.com/developers/api/#access-tokens).
+First and foremost, you need to have a working [Mapbox API token](https://www.mapbox.com/developers/api/#access-tokens).
 
 Make sure that the angular-mapbox-forward-geolocation.js file is included in your HTML page.
 
